@@ -1,0 +1,25 @@
+# Arquivo para ignorar arquivos do Python e Flask
+
+# Ambientes virtuais
+.venv
+venv/
+venv.bak/
+*/venv/
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pasta de instância do Flask (se usar)
+instance/
+.web-env/
+
+# Arquivos de ambiente (se usar para guardar senhas, etc.)
+.env
+.flaskenv
+
+# Metadados de editores
+.vscode/
+.idea/
