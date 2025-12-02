@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
     />
 
-    <title>Marketplace Manager</title>
+    <title>Marketplace Manager - Cadastro</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -46,32 +46,28 @@
 
         <div class="flex flex-1 justify-center py-5">
           <div
-            class="layout-content-container flex flex-col items-center w-[512px] max-w-[512px] py-5 flex-1"
+            class="layout-content-container flex flex-col items-center w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1"
           >
             <h2
               class="text-[#0d141c] tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5"
             >
-              Bem-vindo
+              Criar Conta
             </h2>
 
-            <!-- FLASH MESSAGES (opcional) -->
-            {% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                <div class="w-full max-w-[480px] px-4">
-                  {% for category, msg in messages %}
-                    <div class="mb-2 text-sm px-3 py-2 rounded
-                                {% if category == 'success' %} bg-green-100 text-green-800
-                                {% elif category == 'danger' %} bg-red-100 text-red-800
-                                {% elif category == 'warning' %} bg-yellow-100 text-yellow-800
-                                {% else %} bg-slate-100 text-slate-800 {% endif %}">
-                      {{ msg }}
-                    </div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            {% endwith %}
+            <form method="POST" action="{{ url_for('register') }}" class="flex flex-col items-center w-full">
+              <div class="flex max-w-[480px] w-full flex-wrap items-end gap-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#0d141c] text-base font-medium leading-normal pb-2">Nome</p>
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Seu nome"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-14 placeholder:text-[#49739c] p-4 text-base font-normal leading-normal"
+                    required
+                  />
+                </label>
+              </div>
 
-            <form method="POST" action="{{ url_for('login') }}" class="flex flex-col items-center w-full">
               <div class="flex max-w-[480px] w-full flex-wrap items-end gap-4 py-3">
                 <label class="flex flex-col min-w-40 flex-1">
                   <p class="text-[#0d141c] text-base font-medium leading-normal pb-2">Email</p>
@@ -91,30 +87,43 @@
                   <input
                     name="password"
                     type="password"
-                    placeholder="Insira sua senha"
+                    placeholder="Crie uma senha"
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-14 placeholder:text-[#49739c] p-4 text-base font-normal leading-normal"
                     required
                   />
+                </label>
+              </div>
 
+              <div class="flex max-w-[480px] w-full flex-wrap items-end gap-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#0d141c] text-base font-medium leading-normal pb-2">Confirmar senha</p>
+                  <input
+                    name="confirm_password"
+                    type="password"
+                    placeholder="Repita a senha"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-14 placeholder:text-[#49739c] p-4 text-base font-normal leading-normal"
+                    required
+                  />
                 </label>
               </div>
 
               <div class="flex py-3 w-full max-w-[480px]">
                 <button
-                  type="submit"
                   class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#0d80f2] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]"
                 >
-                  <span class="truncate">Login</span>
+                  <span class="truncate">Cadastrar</span>
                 </button>
               </div>
             </form>
 
-            <p class="text-[#49739c] text-sm font-normal leading-normal pb-1 pt-1 px-4 text-center underline">
-              Esqueceu sua senha?
+            <p class="text-[#49739c] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center">
+              Já tem uma conta?
+              <a href="{{ url_for('login') }}" class="underline">Entrar</a>
             </p>
-            <p class="text-[#49739c] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline">
-              <a href="{{ url_for('register') }}">Não tem uma conta? Cadastre-se</a>
+            <p class="text-[#49739c] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center">
+              <a href="{{ url_for('login') }}" class="underline">Voltar para o login</a>
             </p>
+
           </div>
         </div>
       </div>

@@ -31,11 +31,18 @@
             <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">OrderFlow</h2>
           </div>
           <div class="flex flex-1 justify-end gap-8">
-            <div class="flex items-center gap-9">
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Dashboard</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Orders</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Products</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Settings</a>
+             <div class="flex items-center gap-9">
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('dashboard') }}">Dashboard</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('orders') }}">Pedidos</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('processamentoEnvio') }}">Envio em Processamento</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('settings') }}">Configurações</a>
             </div>
             <button
               class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7edf4] text-[#0d141c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
@@ -59,23 +66,23 @@
             <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight min-w-72">Dashboard</p></div>
             <div class="flex flex-wrap gap-4 p-4">
               <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 bg-[#e7edf4]">
-                <p class="text-[#0d141c] text-base font-medium leading-normal">Total Orders Today</p>
+                <p class="text-[#0d141c] text-base font-medium leading-normal">Total Pedidos Hoje</p>
                 <p class="text-[#0d141c] tracking-light text-2xl font-bold leading-tight">125</p>
               </div>
               <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 bg-[#e7edf4]">
-                <p class="text-[#0d141c] text-base font-medium leading-normal">Pending Orders</p>
+                <p class="text-[#0d141c] text-base font-medium leading-normal">Pedidos Pendentes</p>
                 <p class="text-[#0d141c] tracking-light text-2xl font-bold leading-tight">32</p>
               </div>
               <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 bg-[#e7edf4]">
-                <p class="text-[#0d141c] text-base font-medium leading-normal">Average Order Value</p>
-                <p class="text-[#0d141c] tracking-light text-2xl font-bold leading-tight">$45.50</p>
+                <p class="text-[#0d141c] text-base font-medium leading-normal">Ticket Médio</p>
+                <p class="text-[#0d141c] tracking-light text-2xl font-bold leading-tight">R$45.50</p>
               </div>
               <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 bg-[#e7edf4]">
-                <p class="text-[#0d141c] text-base font-medium leading-normal">Total Revenue</p>
-                <p class="text-[#0d141c] tracking-light text-2xl font-bold leading-tight">$5,687.50</p>
+                <p class="text-[#0d141c] text-base font-medium leading-normal">Faturamento Total</p>
+                <p class="text-[#0d141c] tracking-light text-2xl font-bold leading-tight">R$5,687.50</p>
               </div>
             </div>
-            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Pending Orders by Marketplace</h2>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Pedidos Por Marketplace</h2>
             <div class="flex flex-wrap gap-4 p-4">
               <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#cedbe8]">
                 <p class="text-[#0d141c] text-base font-medium leading-normal">Shopee</p>
@@ -90,21 +97,60 @@
                 <p class="text-[#0d141c] tracking-light text-2xl font-bold leading-tight">7</p>
               </div>
             </div>
-            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Order Distribution</h2>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+              Distribuição dos Pedidos
+            </h2>
             <div class="flex flex-wrap gap-4 px-4 py-6">
               <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#cedbe8] p-6">
-                <p class="text-[#0d141c] text-base font-medium leading-normal">Orders by Marketplace</p>
-                <div class="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center px-3">
-                  <div class="border-[#49739c] bg-[#e7edf4] border-t-2 w-full" style="height: 10%;"></div>
-                  <p class="text-[#49739c] text-[13px] font-bold leading-normal tracking-[0.015em]">Shopee</p>
-                  <div class="border-[#49739c] bg-[#e7edf4] border-t-2 w-full" style="height: 10%;"></div>
-                  <p class="text-[#49739c] text-[13px] font-bold leading-normal tracking-[0.015em]">Mercado Livre</p>
-                  <div class="border-[#49739c] bg-[#e7edf4] border-t-2 w-full" style="height: 10%;"></div>
-                  <p class="text-[#49739c] text-[13px] font-bold leading-normal tracking-[0.015em]">Amazon</p>
+                <p class="text-[#0d141c] text-base font-medium leading-normal">
+                  Pedidos por Marketplace
+                </p>
+
+                <!-- GRÁFICO DE BARRAS -->
+                <div
+                  id="marketplaceChart"
+                  class="grid min-h-[180px] grid-flow-col auto-cols-fr gap-6 items-end justify-items-center px-3"
+                >
+                  <!-- Shopee -->
+                  <div class="flex flex-col items-center gap-2 w-full">
+                    <div
+                      class="market-bar w-full"
+                      data-bar-value="15"
+                      data-bar-color="#FF5722"
+                      style="height: 0;"
+                    ></div>
+                    <p class="text-[#49739c] text-[13px] font-bold">Shopee</p>
+                  </div>
+
+
+                  <!-- Mercado Livre -->
+                  <div class="flex flex-col items-center gap-2 w-full">
+                    <div
+                      class="market-bar w-full"
+                      data-bar-value="10"
+                      data-bar-color="#FFE000"
+                      style="height: 0;"
+                    ></div>
+                    <p class="text-[#49739c] text-[13px] font-bold">Mercado Livre</p>
+                  </div>
+
+
+                  <!-- Amazon -->
+                  <div class="flex flex-col items-center gap-2 w-full">
+                    <div
+                      class="market-bar w-full"
+                      data-bar-value="7"
+                      data-bar-color="#146EB4"
+                      style="height: 0;"
+                    ></div>
+                    <p class="text-[#49739c] text-[13px] font-bold">Amazon</p>
+                  </div>
+
                 </div>
               </div>
             </div>
-            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Upcoming Orders</h2>
+
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Pedidos Abertos</h2>
             <div class="px-4 py-3 @container">
               <div class="flex overflow-hidden rounded-lg border border-[#cedbe8] bg-slate-50">
                 <table class="flex-1">
@@ -117,10 +163,10 @@
                         Marketplace
                       </th>
                       <th class="table-1a90df25-576f-4ffc-b5ae-58d83c8c99e2-column-360 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
-                        Customer
+                        Cliente
                       </th>
                       <th class="table-1a90df25-576f-4ffc-b5ae-58d83c8c99e2-column-480 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
-                        Order Date
+                        Data do Pedido
                       </th>
                       <th class="table-1a90df25-576f-4ffc-b5ae-58d83c8c99e2-column-600 px-4 py-3 text-left text-[#0d141c] w-60 text-sm font-medium leading-normal">Status</th>
                     </tr>
@@ -139,7 +185,7 @@
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Pending</span>
+                          <span class="truncate">Pendente</span>
                         </button>
                       </td>
                     </tr>
@@ -158,7 +204,7 @@
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Processing</span>
+                          <span class="truncate">Processando</span>
                         </button>
                       </td>
                     </tr>
@@ -175,7 +221,7 @@
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Pending</span>
+                          <span class="truncate">Pendente</span>
                         </button>
                       </td>
                     </tr>
@@ -192,7 +238,7 @@
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Shipped</span>
+                          <span class="truncate">Enviado</span>
                         </button>
                       </td>
                     </tr>
@@ -211,7 +257,7 @@
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Pending</span>
+                          <span class="truncate">Pendente</span>
                         </button>
                       </td>
                     </tr>
@@ -230,5 +276,33 @@
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const chart = document.getElementById("marketplaceChart");
+        const bars = chart ? chart.querySelectorAll(".market-bar") : [];
+        if (!chart || !bars.length) return;
+
+        const chartHeight = chart.getBoundingClientRect().height || 180;
+        const maxBarHeight = chartHeight - 40; // espaço para labels
+
+        // Encontrar maior valor
+        let maxValue = Math.max(...Array.from(bars).map(b => parseFloat(b.dataset.barValue)));
+
+        // Aplicar altura + cor
+        bars.forEach((bar) => {
+          const value = parseFloat(bar.dataset.barValue);
+          const heightPx = maxValue ? (value / maxValue) * maxBarHeight : 0;
+          const color = bar.dataset.barColor;
+
+          bar.style.height = heightPx + "px";
+          bar.style.backgroundColor = color;
+          bar.style.borderTop = "0";      // remover borda antiga
+          bar.style.borderRadius = "4px"; // opcional, deixa mais moderno
+        });
+      });
+    </script>
+
+
+
   </body>
 </html>

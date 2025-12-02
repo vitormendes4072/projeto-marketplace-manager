@@ -5,7 +5,7 @@
       rel="stylesheet"
       as="style"
       onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Nãoo+Sans%3Awght%40400%3B500%3B700%3B900"
     />
 
     <title>Stitch Design</title>
@@ -14,7 +14,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: Inter, "Nãoo Sans", sans-serif;'>
       <div class="layout-container flex h-full grow flex-col">
         <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
           <div class="flex items-center gap-4 text-[#0d141c]">
@@ -31,12 +31,19 @@
             <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">OrderFlow</h2>
           </div>
           <div class="flex flex-1 justify-end gap-8">
-            <div class="flex items-center gap-9">
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Dashboard</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Orders</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Products</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Integrations</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Settings</a>
+            <div class="flex flex-1 justify-end gap-8">
+             <div class="flex items-center gap-9">
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('dashboard') }}">Dashboard</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('orders') }}">Pedidos</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('processamentoEnvio') }}">Envio em Processamento</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('settings') }}">Configurações</a>
             </div>
             <div
               class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
@@ -48,8 +55,8 @@
           <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
             <div class="flex flex-wrap justify-between gap-3 p-4">
               <div class="flex min-w-72 flex-col gap-3">
-                <p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight">Settings</p>
-                <p class="text-[#49739c] text-sm font-normal leading-normal">Manage your OrderFlow settings</p>
+                <p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight">Configurações</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Gerencie suas Configurações OrderFlow</p>
               </div>
             </div>
             <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Integrations</h2>
@@ -63,8 +70,8 @@
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">ShopEase</p>
-                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Connected</p>
+                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Shopee</p>
+                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Conectado</p>
                 </div>
               </div>
               <div class="shrink-0">
@@ -87,8 +94,8 @@
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">MarketPlace</p>
-                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Not Connected</p>
+                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Mercado Livre</p>
+                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Não Conectado</p>
                 </div>
               </div>
               <div class="shrink-0">
@@ -111,8 +118,8 @@
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">River</p>
-                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Not Connected</p>
+                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Amazon</p>
+                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Não Conectado</p>
                 </div>
               </div>
               <div class="shrink-0">
@@ -125,7 +132,7 @@
                 </div>
               </div>
             </div>
-            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Notifications</h2>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Nãoifications</h2>
             <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2 justify-between">
               <div class="flex items-center gap-4">
                 <div class="text-[#0d141c] flex items-center justify-center rounded-lg bg-[#e7edf4] shrink-0 size-12" data-icon="Bell" data-size="24px" data-weight="regular">
@@ -136,8 +143,8 @@
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">New Orders</p>
-                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Receive notifications for new orders</p>
+                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Novos Pedidos</p>
+                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Receber Notificações para Novos Pedidos</p>
                 </div>
               </div>
               <div class="shrink-0">
@@ -159,8 +166,8 @@
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Order Updates</p>
-                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Receive notifications for order updates</p>
+                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Atualizações de Pedidos</p>
+                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Receber Notificações para Atualizações de Pedidos</p>
                 </div>
               </div>
               <div class="shrink-0">
@@ -172,7 +179,7 @@
                 </label>
               </div>
             </div>
-            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">User Management</h2>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Gerenciamento de Usuário</h2>
             <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2 justify-between">
               <div class="flex items-center gap-4">
                 <div class="text-[#0d141c] flex items-center justify-center rounded-lg bg-[#e7edf4] shrink-0 size-12" data-icon="Users" data-size="24px" data-weight="regular">
@@ -183,8 +190,8 @@
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Manage Users</p>
-                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Manage users who have access to OrderFlow</p>
+                  <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Gerenciar Usuários</p>
+                  <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Gerenciar Usuários que não tem acesso ao OrderFlow</p>
                 </div>
               </div>
               <div class="shrink-0">

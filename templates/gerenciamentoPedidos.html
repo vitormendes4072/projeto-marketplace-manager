@@ -8,15 +8,21 @@
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
     />
 
-    <title>Stitch Design</title>
+    <title>OrderFlow - Pedidos</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
+      style='font-family: Inter, "Noto Sans", sans-serif;'
+    >
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
+        <!-- TOPO -->
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3"
+        >
           <div class="flex items-center gap-4 text-[#0d141c]">
             <div class="size-4">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,9 +34,13 @@
                 ></path>
               </svg>
             </div>
-            <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">OrderFlow</h2>
+            <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">
+              OrderFlow
+            </h2>
           </div>
+
           <div class="flex flex-1 justify-end gap-8">
+            <!-- busca do header (decorativo) -->
             <label class="flex flex-col min-w-40 !h-10 max-w-64">
               <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
                 <div
@@ -46,12 +56,13 @@
                   </svg>
                 </div>
                 <input
-                  placeholder="Search"
+                  placeholder="Buscar"
                   class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-full placeholder:text-[#49739c] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
                   value=""
                 />
               </div>
             </label>
+
             <button
               class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7edf4] text-[#0d141c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
             >
@@ -63,20 +74,29 @@
                 </svg>
               </div>
             </button>
+
             <div
               class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
               style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFA_cHK3IMmkitkWLU1CIOxmeIuyqIItoxiOHIzl2G2CCn-fiEXY0sHaHUmfbb2Le-xsF6l_1rl_uSajTgsJYi51kXOC6l60XN8eGt3M-tHpY9c9t2PgAHasK7vkKxVa9qJQXXT4X77PMeFCYP0UU7NCj3Ap-k7FfRp4eXy6VKh3ZQTGTX9lYObnaPtynLWD7G34YXrTrzoIyRvShGA06KzP2wEKBIRnvv9rNilmhO1EQPEK4N1T5eNQ3C2ZbQPZMnSt5FbGS3FFw");'
             ></div>
           </div>
         </header>
+
+        <!-- CONTEÚDO -->
         <div class="px-40 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
             <div class="flex flex-wrap justify-between gap-3 p-4">
               <div class="flex min-w-72 flex-col gap-3">
-                <p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight">Orders</p>
-                <p class="text-[#49739c] text-sm font-normal leading-normal">Manage and track all your marketplace orders in one place.</p>
+                <p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight">
+                  Pedidos
+                </p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal">
+                  Gerencie e acompanhe todas os seus pedidos do marketplace em um só lugar.
+                </p>
               </div>
             </div>
+
+            <!-- BUSCA PRINCIPAL -->
             <div class="px-4 py-3">
               <label class="flex flex-col min-w-40 h-12 w-full">
                 <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
@@ -93,87 +113,158 @@
                     </svg>
                   </div>
                   <input
-                    placeholder="Search orders by ID, customer name, or marketplace"
+                    id="searchInput"
+                    placeholder="Buscar pedidos por, nome do cliente ou marketplace"
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-full placeholder:text-[#49739c] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
                     value=""
                   />
                 </div>
               </label>
             </div>
+
+            <!-- FILTROS -->
             <div class="flex gap-3 p-3 flex-wrap pr-4">
-              <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf4] pl-4 pr-2">
-                <p class="text-[#0d141c] text-sm font-medium leading-normal">Marketplace</p>
-                <div class="text-[#0d141c]" data-icon="CaretDown" data-size="20px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
-                  </svg>
-                </div>
-              </button>
-              <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf4] pl-4 pr-2">
-                <p class="text-[#0d141c] text-sm font-medium leading-normal">Status</p>
-                <div class="text-[#0d141c]" data-icon="CaretDown" data-size="20px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
-                  </svg>
-                </div>
-              </button>
-              <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf4] pl-4 pr-2">
-                <p class="text-[#0d141c] text-sm font-medium leading-normal">Date Range</p>
-                <div class="text-[#0d141c]" data-icon="CaretDown" data-size="20px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
-                  </svg>
-                </div>
-              </button>
+              <!-- Marketplace -->
+              <select
+                id="marketplaceFilter"
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf4] pl-4 pr-2 text-[#0d141c] text-sm font-medium leading-normal"
+              >
+                <option value="">Marketplace</option>
+                <option value="Shopee">Shopee</option>
+                <option value="Mercado Livre">Mercado Livre</option>
+                <option value="Amazon">Amazon</option>
+              </select>
+
+              <!-- Status -->
+              <select
+                id="statusFilter"
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf4] pl-4 pr-2 text-[#0d141c] text-sm font-medium leading-normal"
+              >
+                <option value="">Status</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Em Preparação">Em Preparação</option>
+                <option value="Preparado">Preparado</option>
+                <option value="Enviado">Enviado</option>
+              </select>
+
+              <!-- Período -->
+              <div class="flex items-center gap-2">
+                <span class="text-[#0d141c] text-sm font-medium leading-normal">
+                  Período:
+                </span>
+                <input
+                  id="startDate"
+                  type="date"
+                  class="h-8 rounded-lg bg-[#e7edf4] px-2 text-sm text-[#0d141c] border-none focus:outline-none focus:ring-0"
+                />
+                <span class="text-[#49739c] text-xs">até</span>
+                <input
+                  id="endDate"
+                  type="date"
+                  class="h-8 rounded-lg bg-[#e7edf4] px-2 text-sm text-[#0d141c] border-none focus:outline-none focus:ring-0"
+                />
+              </div>
             </div>
+
+            <!-- TABELA -->
             <div class="px-4 py-3 @container">
               <div class="flex overflow-hidden rounded-lg border border-[#cedbe8] bg-slate-50">
                 <table class="flex-1">
                   <thead>
                     <tr class="bg-slate-50">
-                      <th class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
-                        Order ID
+                      <th
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal"
+                      >
+                        ID Do Pedido
                       </th>
-                      <th class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
+                      <th
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal"
+                      >
                         Marketplace
                       </th>
-                      <th class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 px-4 py-3 text-left text-[#0d141c] w-60 text-sm font-medium leading-normal">Status</th>
-                      <th class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
-                        Customer Name
+                      <th
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 px-4 py-3 text-left text-[#0d141c] w-60 text-sm font-medium leading-normal"
+                      >
+                        Status
                       </th>
-                      <th class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-600 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal">
-                        Order Date
+                      <th
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Nome do Cliente
+                      </th>
+                      <th
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-600 px-4 py-3 text-left text-[#0d141c] w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Data do Pedido
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#12345</td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">ShopEase</td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                    <!-- Cada linha com data-* para filtros -->
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#12345"
+                      data-marketplace="Shopee"
+                      data-status="Pendente"
+                      data-customer="Sophia Clark"
+                      data-date="2024-07-26"
+                    >
+                      <td
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal"
+                      >
+                        <a href="{{ url_for('order_details', order_id='12345') }}" class="text-[#0d80f2] underline">
+                          #12345
+                        </a>
+                      </td>
+                      <td
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal"
+                      >
+                        Shopee
+                      </td>
+                      <td
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal"
+                      >
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Pending</span>
+                          <span class="truncate">Pendente</span>
                         </button>
                       </td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                      <td
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal"
+                      >
                         Sophia Clark
                       </td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                      <td
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-600 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal"
+                      >
                         2024-07-26
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#67890</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#67890"
+                      data-marketplace="Mercado Livre"
+                      data-status="Em Preparação"
+                      data-customer="Ethan Carter"
+                      data-date="2024-07-25"
+                    >
+                      <td
+                        class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal"
+                      >
+                        <a href="{{ url_for('order_details', order_id='67890') }}" class="text-[#0d80f2] underline">
+                          #67890
+                        </a>
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
-                        MarketHub
+                        Mercado Livre
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">In Preparation</span>
+                          <span class="truncate">Em Preparação</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -183,14 +274,28 @@
                         2024-07-25
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#11223</td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">ShopEase</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#11223"
+                      data-marketplace="Shopee"
+                      data-status="Preparado"
+                      data-customer="Olivia Bennett"
+                      data-date="2024-07-24"
+                    >
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">
+                        <a href="{{ url_for('order_details', order_id='11223') }}" class="text-[#0d80f2] underline">
+                          #11223
+                        </a>
+                      </td>
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Shopee
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Prepared</span>
+                          <span class="truncate">Preparado</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -200,14 +305,28 @@
                         2024-07-24
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#44556</td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Amazonia</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#44556"
+                      data-marketplace="Amazon"
+                      data-status="Enviado"
+                      data-customer="Liam Harper"
+                      data-date="2024-07-23"
+                    >
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">
+                        <a href="{{ url_for('order_details', order_id='44556') }}" class="text-[#0d80f2] underline">
+                          #44556
+                        </a>
+                      </td>
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Amazon
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Shipped</span>
+                          <span class="truncate">Enviado</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -217,16 +336,28 @@
                         2024-07-23
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#77889</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#77889"
+                      data-marketplace="Mercado Livre"
+                      data-status="Pendente"
+                      data-customer="Ava Foster"
+                      data-date="2024-07-22"
+                    >
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">
+                        <a href="{{ url_for('order_details', order_id='77889') }}" class="text-[#0d80f2] underline">
+                          #77889
+                        </a>
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
-                        MarketHub
+                        Mercado Livre
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Pending</span>
+                          <span class="truncate">Pendente</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -236,14 +367,28 @@
                         2024-07-22
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#99001</td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">ShopEase</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#99001"
+                      data-marketplace="Shopee"
+                      data-status="Em Preparação"
+                      data-customer="Noah Reed"
+                      data-date="2024-07-21"
+                    >
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">
+                        <a href="{{ url_for('order_details', order_id='99001') }}" class="text-[#0d80f2] underline">
+                          #99001
+                        </a>
+                      </td>
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Shopee
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">In Preparation</span>
+                          <span class="truncate">Em Preparação</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -253,14 +398,28 @@
                         2024-07-21
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#22334</td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Amazonia</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#22334"
+                      data-marketplace="Amazon"
+                      data-status="Preparado"
+                      data-customer="Isabella Hayes"
+                      data-date="2024-07-20"
+                    >
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">
+                        <a href="{{ url_for('order_details', order_id='22334') }}" class="text-[#0d80f2] underline">
+                          #22334
+                        </a>
+                      </td>
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Amazon
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Prepared</span>
+                          <span class="truncate">Preparado</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -270,16 +429,28 @@
                         2024-07-20
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#55667</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#55667"
+                      data-marketplace="Mercado Livre"
+                      data-status="Enviado"
+                      data-customer="Jackson Cole"
+                      data-date="2024-07-19"
+                    >
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">
+                        <a href="{{ url_for('order_details', order_id='55667') }}" class="text-[#0d80f2] underline">
+                          #55667
+                        </a>
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
-                        MarketHub
+                        Mercado Livre
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Shipped</span>
+                          <span class="truncate">Enviado</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -289,14 +460,28 @@
                         2024-07-19
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#88990</td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">ShopEase</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#88990"
+                      data-marketplace="Shopee"
+                      data-status="Pendente"
+                      data-customer="Mia Brooks"
+                      data-date="2024-07-18"
+                    >
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">
+                        <a href="{{ url_for('order_details', order_id='88990') }}" class="text-[#0d80f2] underline">
+                          #88990
+                        </a>
+                      </td>
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Shopee
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">Pending</span>
+                          <span class="truncate">Pendente</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -306,14 +491,28 @@
                         2024-07-18
                       </td>
                     </tr>
-                    <tr class="border-t border-t-[#cedbe8]">
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">#11223</td>
-                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">Amazonia</td>
+
+                    <tr
+                      class="border-t border-t-[#cedbe8]"
+                      data-id="#11223"
+                      data-marketplace="Amazon"
+                      data-status="Em Preparação"
+                      data-customer="Aiden Parker"
+                      data-date="2024-07-17"
+                    >
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0d141c] text-sm font-normal leading-normal">
+                        <a href="{{ url_for('order_details', order_id='11223') }}" class="text-[#0d80f2] underline">
+                          #11223
+                        </a>
+                      </td>
+                      <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
+                        Amazon
+                      </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                         <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-medium leading-normal w-full"
                         >
-                          <span class="truncate">In Preparation</span>
+                          <span class="truncate">Em Preparação</span>
                         </button>
                       </td>
                       <td class="table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 h-[72px] px-4 py-2 w-[400px] text-[#49739c] text-sm font-normal leading-normal">
@@ -326,17 +525,99 @@
                   </tbody>
                 </table>
               </div>
+
               <style>
-                          @container(max-width:120px){.table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120{display: none;}}
-                @container(max-width:240px){.table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240{display: none;}}
-                @container(max-width:360px){.table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360{display: none;}}
-                @container(max-width:480px){.table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480{display: none;}}
-                @container(max-width:600px){.table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-600{display: none;}}
+                @container (max-width: 120px) {
+                  .table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-120 {
+                    display: none;
+                  }
+                }
+                @container (max-width: 240px) {
+                  .table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-240 {
+                    display: none;
+                  }
+                }
+                @container (max-width: 360px) {
+                  .table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-360 {
+                    display: none;
+                  }
+                }
+                @container (max-width: 480px) {
+                  .table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-480 {
+                    display: none;
+                  }
+                }
+                @container (max-width: 600px) {
+                  .table-b1dcbb92-a8d6-4ba8-af43-c2657d1485d2-column-600 {
+                    display: none;
+                  }
+                }
               </style>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- SCRIPT DE FILTRO -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const marketplaceFilter = document.getElementById("marketplaceFilter");
+        const statusFilter = document.getElementById("statusFilter");
+        const startDateInput = document.getElementById("startDate");
+        const endDateInput = document.getElementById("endDate");
+        const rows = document.querySelectorAll("tbody tr");
+
+        function applyFilters() {
+          const search = (searchInput.value || "").toLowerCase();
+          const marketplace = marketplaceFilter.value;
+          const status = statusFilter.value;
+          const startDate = startDateInput.value ? new Date(startDateInput.value) : null;
+          const endDate = endDateInput.value ? new Date(endDateInput.value) : null;
+
+          rows.forEach((row) => {
+            const rowMarketplace = row.dataset.marketplace || "";
+            const rowStatus = row.dataset.status || "";
+            const rowCustomer = (row.dataset.customer || "").toLowerCase();
+            const rowId = (row.dataset.id || "").toLowerCase();
+            const rowDateStr = row.dataset.date || "";
+            const rowDate = rowDateStr ? new Date(rowDateStr) : null;
+
+            const textForSearch = `${rowId} ${rowMarketplace.toLowerCase()} ${rowCustomer}`;
+
+            let visible = true;
+
+            if (search && !textForSearch.includes(search)) {
+              visible = false;
+            }
+
+            if (marketplace && rowMarketplace !== marketplace) {
+              visible = false;
+            }
+
+            if (status && rowStatus !== status) {
+              visible = false;
+            }
+
+            if (startDate && rowDate && rowDate < startDate) {
+              visible = false;
+            }
+
+            if (endDate && rowDate && rowDate > endDate) {
+              visible = false;
+            }
+
+            row.style.display = visible ? "" : "none";
+          });
+        }
+
+        searchInput.addEventListener("input", applyFilters);
+        marketplaceFilter.addEventListener("change", applyFilters);
+        statusFilter.addEventListener("change", applyFilters);
+        startDateInput.addEventListener("change", applyFilters);
+        endDateInput.addEventListener("change", applyFilters);
+      });
+    </script>
   </body>
 </html>

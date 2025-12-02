@@ -31,11 +31,19 @@
             <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">OrderFlow</h2>
           </div>
           <div class="flex flex-1 justify-end gap-8">
-            <div class="flex items-center gap-9">
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Dashboard</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Orders</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Products</a>
-              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Settings</a>
+            <div class="flex flex-1 justify-end gap-8">
+             <div class="flex items-center gap-9">
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('dashboard') }}">Dashboard</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('orders') }}">Pedidos</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('processamentoEnvio') }}">Envio em Processamento</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('settings') }}">Configurações</a>
             </div>
             <div
               class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
@@ -45,8 +53,8 @@
         </header>
         <div class="gap-1 px-6 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[920px] flex-1">
-            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight min-w-72">Production Line</p></div>
-            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Order Details</h2>
+            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight min-w-72">Pedidos em Preparação</p></div>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Detalhes do Pedido</h2>
             <div class="flex w-full grow bg-slate-50 @container p-4">
               <div class="w-full gap-1 overflow-hidden bg-slate-50 @[480px]:gap-2 aspect-[3/2] rounded-lg flex">
                 <div
@@ -57,23 +65,23 @@
             </div>
             <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
               <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
-                <p class="text-[#49739c] text-sm font-normal leading-normal">Order ID</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal">ID do Pedido</p>
                 <p class="text-[#0d141c] text-sm font-normal leading-normal">#789012345</p>
               </div>
               <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
                 <p class="text-[#49739c] text-sm font-normal leading-normal">Marketplace</p>
-                <p class="text-[#0d141c] text-sm font-normal leading-normal">ShopEasy</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">Shopee</p>
               </div>
             </div>
             <div class="flex flex-col gap-3 p-4">
-              <div class="flex gap-6 justify-between"><p class="text-[#0d141c] text-base font-medium leading-normal">Order Status</p></div>
+              <div class="flex gap-6 justify-between"><p class="text-[#0d141c] text-base font-medium leading-normal">Status Pedido</p></div>
               <div class="rounded bg-[#cedbe8]"><div class="h-2 rounded bg-[#0d80f2]" style="width: 50%;"></div></div>
-              <p class="text-[#49739c] text-sm font-normal leading-normal">Identifying...</p>
+              <p class="text-[#49739c] text-sm font-normal leading-normal">Identificando...</p>
             </div>
-            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Daily Summary</h2>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Resumo Diário</h2>
             <div class="flex flex-wrap gap-4 p-4">
               <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#cedbe8]">
-                <p class="text-[#0d141c] text-base font-medium leading-normal">Orders Processed</p>
+                <p class="text-[#0d141c] text-base font-medium leading-normal">Pedidos Processados</p>
                 <p class="text-[#0d141c] tracking-light text-2xl font-bold leading-tight">150</p>
               </div>
               <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#cedbe8]">
@@ -83,7 +91,7 @@
             </div>
           </div>
           <div class="layout-content-container flex flex-col w-[360px]">
-            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Orders on Conveyor</h2>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Pedidos na Esteira</h2>
             <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
               <div class="text-[#0d141c] flex items-center justify-center rounded-lg bg-[#e7edf4] shrink-0 size-12" data-icon="Package" data-size="24px" data-weight="regular">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
@@ -94,7 +102,7 @@
               </div>
               <div class="flex flex-col justify-center">
                 <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">#123456789</p>
-                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">ShopEasy</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Shopee</p>
               </div>
             </div>
             <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
@@ -107,7 +115,7 @@
               </div>
               <div class="flex flex-col justify-center">
                 <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">#987654321</p>
-                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">MarketPlace</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Mercado Livre</p>
               </div>
             </div>
             <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
@@ -120,7 +128,7 @@
               </div>
               <div class="flex flex-col justify-center">
                 <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">#456789123</p>
-                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">ShopEasy</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Shopee</p>
               </div>
             </div>
             <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
@@ -133,7 +141,7 @@
               </div>
               <div class="flex flex-col justify-center">
                 <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">#321987654</p>
-                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">MarketPlace</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Mercado Livre</p>
               </div>
             </div>
             <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
@@ -146,7 +154,7 @@
               </div>
               <div class="flex flex-col justify-center">
                 <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">#654123987</p>
-                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">ShopEasy</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Shopee</p>
               </div>
             </div>
           </div>
