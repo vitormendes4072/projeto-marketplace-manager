@@ -39,10 +39,30 @@
             </h2>
           </div>
 
+          
+
           <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('dashboard') }}">Dashboard</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('orders') }}">Pedidos</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('processamentoEnvio') }}">Envio em Processamento</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('settings') }}">Configurações</a>
+
+              <a class="text-[#0d141c] text-sm font-medium leading-normal"
+                href="{{ url_for('supabase_dados') }}">Dados Supabase</a>
+
+            </div>
             <!-- busca do header (decorativo) -->
             <label class="flex flex-col min-w-40 !h-10 max-w-64">
               <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                
                 <div
                   class="text-[#49739c] flex border-none bg-[#e7edf4] items-center justify-center pl-4 rounded-l-lg border-r-0"
                   data-icon="MagnifyingGlass"

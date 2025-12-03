@@ -11,6 +11,13 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 import os
+from dotenv import load_dotenv
+from supabase_client import supabase
+from supabase_client import get_table_rows
+
+
+load_dotenv()
+
 
 app = Flask(__name__)
 
@@ -197,6 +204,298 @@ def processamentoEnvio():
 def settings():
     # placeholder – crie um settings.html depois se quiser
     return render_template("configuracoes.html")
+
+from supabase_client import supabase   # lá em cima, junto com os imports
+
+
+@app.route("/supabase-clientes")
+@login_required
+def supabase_clientes():
+    try:
+        # Busca da tabela "clientes"
+        response = supabase.table("clientes").select("*").limit(100).execute()
+        rows = response.data or []
+        print("ROWS DO SUPABASE:", rows)  # só pra debug no terminal
+    except Exception as e:
+        print("Erro ao consultar Supabase:", e)
+        rows = []
+
+    # Mapeia os campos do Supabase para nomes que vamos usar no HTML
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_cliente"),
+                "nome": r.get("nome"),
+                "endereco": r.get("endereco"),
+                "telefone": r.get("telefone"),
+                "email": r.get("email"),
+            }
+        )
+
+    return render_template("supabaseDados.html", registros=registros)
+
+@app.route("/supabase-produtos")
+@login_required
+def supabase_produtos():
+    tabela = "produtos"
+
+    try:
+        # Busca até 200 produtos
+        response = supabase.table(tabela).select("*").limit(200).execute()
+        rows = response.data or []
+        print("ROWS PRODUTOS:", rows)  # só pra debug no terminal
+    except Exception as e:
+        print("Erro ao consultar produtos:", e)
+        rows = []
+
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_produto"),
+                "nome": r.get("nome"),
+                "descricao": r.get("descricao"),
+                "preco": r.get("preco") or 0,
+                "estoque": r.get("estoque") or 0,
+                "peso_kg": r.get("kg_produto") or 0,
+            }
+        )
+
+    return render_template("supabaseProdutos.html", registros=registros)
+
+@app.route("/supabase-veiculos")
+@login_required
+def supabase_veiculos():
+    tabela = "veiculos"
+
+    try:
+        response = supabase.table(tabela).select("*").limit(200).execute()
+        rows = response.data or []
+        print("ROWS VEICULOS:", rows)  # debug
+    except Exception as e:
+        print("Erro ao consultar veiculos:", e)
+        rows = []
+
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_veiculo") or r.get("id") or r.get("id_veiculos"),
+                "modelo": r.get("modelo"),
+                "placa": r.get("placa"),
+                "capacidade_kg": r.get("capacidade_kg") or 0,
+                "consumo_km_litro": r.get("consumo_km_litro") or 0,
+            }
+        )
+
+    return render_template("supabaseVeiculos.html", registros=registros)
+
+
+@app.route("/clientes")
+@login_required
+def clientes():
+    rows = get_table_rows("clientes")
+
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_cliente"),
+                "cols": [
+                    r.get("nome"),
+                    r.get("endereco"),
+                    r.get("telefone"),
+                    r.get("email"),
+                ],
+            }
+        )
+
+    return render_template(
+        "supabaseDados.html",
+        titulo="Clientes",
+        descricao="Lista de clientes cadastrados no Supabase.",
+        colunas=["Nome", "Endereço", "Telefone", "E-mail"],
+        registros=registros,
+    )
+
+
+@app.route("/produtos")
+@login_required
+def produtos():
+    rows = get_table_rows("produtos")
+
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_produto"),
+                "cols": [
+                    r.get("nome"),
+                    r.get("descricao"),
+                    r.get("preco"),
+                    r.get("estoque"),
+                    r.get("kg_produto"),
+                ],
+            }
+        )
+
+    return render_template(
+        "supabaseDados.html",
+        titulo="Produtos",
+        descricao="Lista de produtos disponíveis no Supabase.",
+        colunas=["Nome", "Descrição", "Preço", "Estoque", "Kg/Produto"],
+        registros=registros,
+    )
+
+
+@app.route("/motoristas")
+@login_required
+def motoristas():
+    rows = get_table_rows("motoristas")
+
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_motorista"),
+                "cols": [
+                    r.get("nome"),
+                    r.get("telefone"),
+                    r.get("email"),
+                    r.get("regiao"),
+                    r.get("cnh_numero"),
+                ],
+            }
+        )
+
+    return render_template(
+        "supabaseDados.html",
+        titulo="Motoristas",
+        descricao="Motoristas cadastrados para as entregas.",
+        colunas=["Nome", "Telefone", "E-mail", "Região", "CNH"],
+        registros=registros,
+    )
+
+
+@app.route("/veiculos")
+@login_required
+def veiculos():
+    rows = get_table_rows("veiculos")
+
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_veiculo"),
+                "cols": [
+                    r.get("modelo"),
+                    r.get("placa"),
+                    r.get("capacidade_kg"),
+                    r.get("consumo_km_litro"),
+                ],
+            }
+        )
+
+    return render_template(
+        "supabaseDados.html",
+        titulo="Veículos",
+        descricao="Veículos disponíveis para roteirização das entregas.",
+        colunas=["Modelo", "Placa", "Capacidade (kg)", "Consumo (km/l)"],
+        registros=registros,
+    )
+
+@app.route("/supabase-motoristas")
+@login_required
+def supabase_motoristas():
+    tabela = "motoristas"
+
+    try:
+        response = supabase.table(tabela).select("*").limit(200).execute()
+        rows = response.data or []
+        print("ROWS MOTORISTAS:", rows)  # debug
+    except Exception as e:
+        print("Erro ao consultar motoristas:", e)
+        rows = []
+
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_motorista") or r.get("id") or r.get("id_motoristas"),
+                "nome": r.get("nome"),
+                "telefone": r.get("telefone"),
+                "email": r.get("email"),
+                "regiao": r.get("regiao"),
+                "cnh_numero": r.get("cnh_numero"),
+            }
+        )
+
+    return render_template("supabaseMotoristas.html", registros=registros)
+
+@app.route("/supabase-entregas")
+@login_required
+def supabase_entregas():
+    tabela = "entregas"
+
+    try:
+        response = supabase.table(tabela).select("*").limit(200).execute()
+        rows = response.data or []
+        print("ROWS ENTREGAS:", rows)  # debug pra ver as colunas reais no console
+    except Exception as e:
+        print("Erro ao consultar entregas:", e)
+        rows = []
+
+    registros = []
+    for r in rows:
+        registros.append(
+            {
+                "id": r.get("id_entrega") or r.get("id"),
+                "id_cliente": r.get("id_cliente"),
+                "id_motorista": r.get("id_motorista"),
+                "data": r.get("data_entrega") or r.get("data") or "",
+                "status": r.get("status") or r.get("situacao") or "-",
+            }
+        )
+
+    return render_template("supabaseEntregas.html", registros=registros)
+
+@app.route("/supabase-entregas-produtos")
+@login_required
+def supabase_entregas_produtos():
+    tabela = "entregas_produtos"
+
+    try:
+        resp = supabase.table(tabela).select("*").limit(200).execute()
+        rows = resp.data or []
+        print("ROWS ENTREGAS_PRODUTOS:", rows)
+    except Exception as e:
+        print("Erro ao consultar entregas_produtos:", e)
+        rows = []
+
+    itens = []
+    for r in rows:
+        itens.append(
+            {
+                # tenta vários nomes possíveis de ID, pra não quebrar
+                "id": r.get("id_entrega_produto")
+                or r.get("id")
+                or r.get("id_entrega_prod"),
+
+                "id_entrega": r.get("id_entrega"),
+                "id_produto": r.get("id_produto"),
+
+                # quantidade pode estar com nome diferente, deixei seguro
+                "quantidade": r.get("quantidade")
+                or r.get("qtd")
+                or r.get("qtd_produto"),
+
+                # campo opcional, se não existir mostra "-"
+                "kg_total": r.get("kg_total") or r.get("peso_total") or "-",
+            }
+        )
+
+    return render_template("supabaseEntregasProdutos.html", itens=itens)
 
 
 # ----- MAIN -----
